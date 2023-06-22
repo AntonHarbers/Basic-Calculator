@@ -1,27 +1,163 @@
 *{
     margin: 0;
+    font-family: 'Raleway Dots', cursive;
 }
 
 body{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-color: #D1D1D1;
+    background-color: #000000;
 }
 
-header{
-    margin-top: 1rem;
-    font-size: 28px;
-    font-weight: bolder;
+#blink{
+    height: 3px;
+    width: 3px;
+    background-color: red;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
 }
 
 footer{
+    position: absolute;
+    bottom: 0;
     margin-bottom: 1rem;
     font-size: 20px;
+    color: white;
+    animation: blink 2s infinite;
+
 }
+
+#calculator{
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    height: 500px;
+    width: 250px;
+    background-color: #4f4f4f;
+    border-radius: 10px;
+}
+
+
+#result{
+    height: 20%;
+    border: 1px solid gray;
+    width: 90%;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    background-color: rgb(5, 107, 5);
+    color: white;
+    box-shadow: 0px 0px 10px 0px rgb(1, 209, 1);
+    font-family: 'Raleway Dots', cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: end;
+    padding-right: 1rem;
+    animation: glitch 15s infinite;
+}
+
+
+@keyframes glitch{
+    0%{
+        opacity: 1;
+    }
+    44%{
+        opacity: .5;
+    }
+    47%{
+        opacity: 1;
+    }
+    49%{
+        opacity: .5;
+    }
+    50%{
+        opacity: 1;
+    }
+    94%{
+        opacity: .5;
+    }
+    95%{
+        opacity: 1;
+    }
+    97%{
+        opacity: .3;
+    }
+    99%{
+        opacity: .8;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    width: 90%;
+}
+
+button{
+    height: 100%;
+    width: 23%;
+    border-radius: 10%;
+    border: none;
+    font-size: 25px;
+    font-weight: bolder;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 0px rgb(1, 209, 1);
+    font-family: 'Raleway Dots', cursive;
+    color: rgb(5, 107, 5);
+
+}
+
+button:hover{
+    opacity: .8;
+    box-shadow: 0px 0px 8px 0px rgb(1, 209, 1);  
+}
+
+button:active{
+    opacity: .5;
+    box-shadow: 0px 0px 2px 0px rgb(1, 209, 1);
+}
+
+.long{
+    width: 48%;
+}
+
+.red{
+    background-color: #F28585;
+}
+
+.dark{
+    background-color: #636363;
+    color: rgb(1, 209, 1);
+}
+
+.light{
+    background-color: #dcdcdc;
+}
+
+
 
 /*
 
