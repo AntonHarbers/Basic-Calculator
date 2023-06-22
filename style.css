@@ -71,6 +71,7 @@ footer{
     align-items: end;
     padding-right: 1rem;
     animation: glitch 15s infinite;
+    font-size: 20px;
 }
 
 
