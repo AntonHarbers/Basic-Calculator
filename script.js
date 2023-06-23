@@ -6,34 +6,6 @@ let outputValue = document.querySelector('#output-value');
 let historyValue = document.querySelector('#history-value');
 let inbutButtons = document.querySelectorAll('.input');
 
-inbutButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    let buttonValue = button.textContent;
-
-    if (buttonValue === 'C'){
-        outputValue.textContent = '';
-        historyValue.textContent = '';
-        return
-    }else if(buttonValue === '<-'){
-        outputValue.textContent = outputValue.textContent.slice(0, -1);
-        return
-    }else if(buttonValue === '='){
-        secondNumber = Number(outputValue.textContent);
-        outputValue.textContent = operate(firstNumber, secondNumber, operator);
-        historyValue.textContent = `${firstNumber} ${operator} ${secondNumber} =`;
-        return
-    }else if(buttonValue === '+' || buttonValue === '-' || buttonValue === 'x' || buttonValue === '÷'){
-        firstNumber = Number(outputValue.textContent);
-        operator = buttonValue;
-        outputValue.textContent = '';
-        historyValue.textContent = `${firstNumber} ${operator}`;
-        return
-    }
-
-    outputValue.textContent += buttonValue;
-  });
-});
-
 const add = (a, b) => {
   return a + b;
 };
@@ -62,4 +34,76 @@ const operate = (a, b, operator) => {
       return divide(a, b);
   }
 };
+
+inbutButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    let buttonValue = button.textContent;
+
+    if(outputValue.textContent === 'Too long'){
+      outputValue.textContent = '';
+      historyValue.textContent = 'Welcome';
+      firstNumber = 0;
+      secondNumber = 0;
+      operator = '';
+      return;
+    }
+
+    switch (buttonValue) {
+      case 'C':
+        outputValue.textContent = '';
+        historyValue.textContent = 'Welcome';
+        firstNumber = 0;
+        secondNumber = 0;
+        operator = '';
+        return;
+      case '<-':
+        if(noInput()) return;
+        outputValue.textContent = outputValue.textContent.slice(0, -1);
+        return;
+      case '=':
+        if(noInput()) return;
+        secondNumber = Number(outputValue.textContent);
+        outputValue.textContent = operate(firstNumber, secondNumber, operator);
+        historyValue.textContent = `${firstNumber.toFixed(2)} ${operator} ${secondNumber.toFixed(2)} =`;
+        checkIfNumbTooLong();
+        return;
+      case '+':
+      case '-':
+      case 'x':
+      case '÷':
+        if(noInput()) return;
+        if(firstNumber !== 0){
+          secondNumber = Number(outputValue.textContent);
+          outputValue.textContent = operate(firstNumber, secondNumber, operator);
+          historyValue.textContent = `${firstNumber.toFixed(2)} ${operator} ${secondNumber.toFixed(2)} =`;
+          checkIfNumbTooLong();
+        }
+
+        firstNumber = Number(outputValue.textContent);
+        operator = buttonValue;
+        outputValue.textContent = '';
+        historyValue.textContent = `${firstNumber.toFixed(2)} ${operator}`;
+        return;
+    }
+
+    outputValue.textContent += buttonValue;
+    checkIfNumbTooLong();
+  });
+});
+
+function checkIfNumbTooLong() {
+  if (outputValue.textContent.length > 15) {
+    outputValue.textContent = 'Too long';
+  }
+}
+
+const noInput = () => {
+  if(outputValue.textContent === '' && historyValue.textContent === 'Welcome'){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+
 

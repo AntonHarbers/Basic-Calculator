@@ -1,6 +1,7 @@
 *{
     margin: 0;
     font-family: 'Raleway Dots', cursive;
+    user-select: none;
 }
 
 body{
@@ -52,6 +53,7 @@ footer{
     width: 250px;
     background-color: #4f4f4f;
     border-radius: 10px;
+    border: 5px solid rgb(89, 89, 89);
 }
 
 
@@ -61,7 +63,7 @@ footer{
     width: 90%;
     margin-bottom: 1rem;
     margin-top: 1rem;
-    background-color: rgb(5, 107, 5);
+    background: linear-gradient(180deg, rgba(5,107,5,1) 0%, black 5%, rgba(5,107,5,1) 6%, rgba(5,107,5,1) 94%, black 95%, rgba(5,107,5,1) 100%);
     color: white;
     box-shadow: 0px 0px 10px 0px rgb(1, 209, 1);
     font-family: 'Raleway Dots', cursive;
@@ -70,7 +72,8 @@ footer{
     justify-content: space-around;
     align-items: end;
     padding-right: 1rem;
-    animation: glitch 15s infinite;
+    padding-left: 1rem;
+    animation: glitch 5s infinite;
     font-size: 20px;
 }
 
