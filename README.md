@@ -2,7 +2,7 @@
 
 A basic calculator built with html, css an vanilla JS for the Odin Project.
 
-[Live Link](https://antonharbers.github.io/Odin_Calculator/)
+[Live Link](https://antonharbers.github.io/Basic-Calculator/)
 
 ![Calculator Image](/images/repoImage.png)
 
